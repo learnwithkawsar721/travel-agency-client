@@ -1,4 +1,4 @@
 const getApi = (url) => {
-  return `http://localhost:5000/${url}`;
+  return `https://trabel-agencey-server.herokuapp.com/${url}`;
 };
 export default getApi;
