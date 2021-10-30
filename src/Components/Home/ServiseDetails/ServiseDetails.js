@@ -108,6 +108,7 @@ const ServiseDetails = () => {
                         id="autoSizingInputGroup"
                         placeholder="Phone Number"
                         {...register("phone")}
+                        required
                       />
                     </div>
                   </div>
@@ -122,6 +123,7 @@ const ServiseDetails = () => {
                         id="autoSizingInputGroup"
                         placeholder="Phone Number"
                         {...register("date")}
+                        required
                       />
                     </div>
                   </div>
@@ -137,6 +139,7 @@ const ServiseDetails = () => {
                         placeholder="quantity"
                         defaultValue="1"
                         {...register("quantity")}
+                        required
                       />
                     </div>
                   </div>

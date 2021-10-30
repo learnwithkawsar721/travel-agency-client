@@ -22,9 +22,9 @@ const Services = () => {
       });
   };
   return (
-    <Container>
+    <Container className="my-5">
       <Row>
-        <Col className="col-12 mt-5">
+        <Col className="col-12 ">
           <h1 className="text-center">All Services List (Admin) </h1>
           <div className="table-responsive">
             <table className="table">

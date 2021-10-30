@@ -35,7 +35,7 @@ const AllBooking = () => {
   return (
     <Container>
       <Row>
-        <Col className="col-12 mt-4">
+        <Col className="col-12 my-5">
           <h2 className="text-center pb-4">All Booking List(Admin) </h2>
           <div className="table-responsive">
             <table className="table">

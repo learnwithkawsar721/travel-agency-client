@@ -14,7 +14,7 @@ const Login = () => {
     user?.email ? histoty.push(rediract) : "";
   }, [user, histoty, rediract]);
   return (
-    <div>
+    <div className="container py-5">
       <h1>Login Page</h1>
       <button onClick={singInGoogle} className="btn btn-danger">
         Google Sign In

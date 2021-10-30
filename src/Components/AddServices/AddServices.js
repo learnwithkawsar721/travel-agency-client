@@ -17,7 +17,7 @@ const AddServices = () => {
   };
   return (
     <Container>
-      <Row className="pt-5">
+      <Row className="py-5">
         <Col>
           <h1 className="text-center pb-4">Add Services</h1>
           <form onSubmit={handleSubmit(onSubmit)}>

@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
         </Col>
         <Col className="col-12 col-sm-12 col-md-6 col-lg-6">
-          <div className="d-flex justify-content-around align-items-center text-white">
+          <div className="d-flex footer_right justify-content-around align-items-center text-white">
             <img
               src={`https://web.programming-hero.com/static/media/ssl-commerce.1d268dce.png`}
               className="w-fluid"

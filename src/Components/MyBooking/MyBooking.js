@@ -23,7 +23,7 @@ const MyBooking = () => {
     }
   };
   return (
-    <Container className="mt-5">
+    <Container className="my-5">
       <>
         <Row>
           <Col className="col-12">
