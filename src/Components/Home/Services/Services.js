@@ -1,172 +1,43 @@
-import React from "react";
-import { Card, Col, Container, Row, Button } from "react-bootstrap";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import getApi from "../../../Utility/getApi";
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    axios.get(getApi("services")).then((res) => setServices(res.data));
+  }, []);
+  console.log(services);
   return (
     <Container fluid className="py-5">
       <Row className="g-4">
-        <h1 className="text-center my-4">Services</h1>
-        <Col className="col-12 col-sm-12 col-md-4 col-lg-3">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://i.ibb.co/JvDgRPL/tour-featured-img-16.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-              <h5>$100</h5>
-              <p>
-                <i className="fas fa-star"></i>
-                <span>5</span>
-              </p>
-              <Button>Booking Now</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col className="col-12 col-sm-12 col-md-4 col-lg-3">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://i.ibb.co/JvDgRPL/tour-featured-img-16.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-              <h5>$100</h5>
-              <p>
-                <i className="fas fa-star"></i>
-                <span>5</span>
-              </p>
-              <Button>Booking Now</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col className="col-12 col-sm-12 col-md-4 col-lg-3">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://i.ibb.co/JvDgRPL/tour-featured-img-16.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-              <h5>$100</h5>
-              <p>
-                <i className="fas fa-star"></i>
-                <span>5</span>
-              </p>
-              <Button>Booking Now</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col className="col-12 col-sm-12 col-md-4 col-lg-3">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://i.ibb.co/JvDgRPL/tour-featured-img-16.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-              <h5>$100</h5>
-              <p>
-                <i className="fas fa-star"></i>
-                <span>5</span>
-              </p>
-              <Button>Booking Now</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col className="col-12 col-sm-12 col-md-4 col-lg-3">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://i.ibb.co/JvDgRPL/tour-featured-img-16.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-              <h5>$100</h5>
-              <p>
-                <i className="fas fa-star"></i>
-                <span>5</span>
-              </p>
-              <Button>Booking Now</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col className="col-12 col-sm-12 col-md-4 col-lg-3">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://i.ibb.co/JvDgRPL/tour-featured-img-16.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-              <h5>$100</h5>
-              <p>
-                <i className="fas fa-star"></i>
-                <span>5</span>
-              </p>
-              <Button>Booking Now</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col className="col-12 col-sm-12 col-md-4 col-lg-3">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://i.ibb.co/JvDgRPL/tour-featured-img-16.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center">
-              <h5>$100</h5>
-              <p>
-                <i className="fas fa-star"></i>
-                <span>5</span>
-              </p>
-              <Button>Booking Now</Button>
-            </Card.Footer>
-          </Card>
-        </Col>
+        <h1 className="text-center my-4">Tour Package</h1>
+        {services.map((ser, index) => (
+          <Col key={index} className="col-12 col-sm-12 col-md-4 col-lg-3">
+            <Card>
+              <Card.Img variant="top" src={ser.img} />
+              <Card.Body>
+                <Card.Title>{ser.title}</Card.Title>
+                <Card.Text>{ser.discription.substring(0, 50)}</Card.Text>
+              </Card.Body>
+              <Card.Footer className="d-flex justify-content-between align-items-center">
+                <h5>${ser.price} </h5>
+                {/* <p>
+                  <i className="fas fa-star"></i>
+                  <span>5</span>
+                </p> */}
+                <NavLink
+                  to={`/booking/${ser._id}`}
+                  className="btn btn-sm btn-primary"
+                >
+                  Booking Now
+                </NavLink>
+              </Card.Footer>
+            </Card>
+          </Col>
+        ))}
       </Row>
     </Container>
   );

@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import useAuth from "../../../hooks/useAuth";
 const Header = () => {
+  const { user, LogOut } = useAuth();
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -20,14 +21,46 @@ const Header = () => {
               <Nav.Link as={Link} to="/home">
                 Home
               </Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
+              {user?.email ? (
+                <>
+                  <Nav.Link as={Link} to="/mybooking">
+                    my-Booking
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/bookinglist">
+                    Booking-List
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/services">
+                    Services
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/add/services">
+                    add Services
+                  </Nav.Link>
+                </>
+              ) : (
+                <Nav.Link href="#" disabled>
+                  Link
+                </Nav.Link>
+              )}
             </Nav>
             <span className="d-flex">
-              <Button variant="outline-success">Search</Button>
+              {user?.email ? (
+                <>
+                  <img
+                    src={user?.photoURL}
+                    className="rounded-circle me-2 z-depth-2"
+                    height="40"
+                    width="40"
+                    alt=""
+                  />
+                  <Button onClick={LogOut} variant="danger">
+                    LogOut
+                  </Button>
+                </>
+              ) : (
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
+              )}
             </span>
           </Navbar.Collapse>
         </Container>
