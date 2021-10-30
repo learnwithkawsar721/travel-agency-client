@@ -10,7 +10,7 @@ const AddServices = () => {
   const onSubmit = (data) => {
     axios.post(getApi("services"), data).then((res) => {
       if (res.data.insertedId) {
-        history.push("/services");
+        history.push("/");
         reset();
       }
     });
@@ -32,6 +32,7 @@ const AddServices = () => {
                   placeholder="service Title..."
                   id="title"
                   {...register("title")}
+                  required
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -45,6 +46,7 @@ const AddServices = () => {
                   placeholder="Service Price $0.01"
                   id="price"
                   {...register("price")}
+                  required
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -57,6 +59,7 @@ const AddServices = () => {
                   placeholder="Destination"
                   id="destination"
                   {...register("destination")}
+                  required
                 />
               </div>
             </div>
@@ -71,6 +74,7 @@ const AddServices = () => {
                   placeholder="departure..."
                   id="departure"
                   {...register("departure")}
+                  required
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -83,6 +87,7 @@ const AddServices = () => {
                   placeholder="H:M:S"
                   id="departuretime"
                   {...register("departuretime")}
+                  required
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -95,6 +100,7 @@ const AddServices = () => {
                   placeholder="H:M:S"
                   id="returntime"
                   {...register("returntime")}
+                  required
                 />
               </div>
             </div>
@@ -110,6 +116,7 @@ const AddServices = () => {
                   id="img"
                   rows="5"
                   {...register("img")}
+                  required
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-8 col-lg-8">
@@ -121,6 +128,7 @@ const AddServices = () => {
                   id="disctiption"
                   rows="5"
                   {...register("discription")}
+                  required
                 ></textarea>
               </div>
             </div>

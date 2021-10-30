@@ -9,7 +9,6 @@ const Services = () => {
   useEffect(() => {
     axios.get(getApi("services")).then((res) => setServices(res.data));
   }, []);
-  console.log(services);
   return (
     <Container fluid className="py-5">
       <Row className="g-4">

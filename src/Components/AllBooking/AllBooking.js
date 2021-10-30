@@ -5,9 +5,13 @@ import getApi from "../../Utility/getApi";
 
 const AllBooking = () => {
   const [booking, setBooking] = useState([]);
+  const [status, setStatus] = useState("");
   useEffect(() => {
-    axios.get(getApi("booking/all")).then((res) => setBooking(res.data));
+    axios.get(getApi("booking/all")).then((res) => {
+      setBooking(res.data);
+    });
   }, []);
+
   const deleteBooking = (id) => {
     const confirm = window.confirm("are your Sure?");
     if (confirm) {
@@ -18,12 +22,21 @@ const AllBooking = () => {
       });
     }
   };
-  console.log(booking);
+
+  // status update
+  const handleStaus = (id) => {
+    axios.put(getApi(`booking/staus/${id}`)).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        setStatus("approved");
+      }
+    });
+  };
+
   return (
     <Container>
       <Row>
         <Col className="col-12 mt-4">
-          <h2 className="text-center pb-4">All Booking List</h2>
+          <h2 className="text-center pb-4">All Booking List(Admin) </h2>
           <div className="table-responsive">
             <table className="table">
               <thead>
@@ -34,6 +47,7 @@ const AllBooking = () => {
                   <th>Images</th>
                   <th>price</th>
                   <th>Phone</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -51,6 +65,13 @@ const AllBooking = () => {
                       <sub> x {book.quantity}</sub>
                     </td>
                     <td>{book.phone}</td>
+                    {(book.status === "approved" && (
+                      <td> {book.status}</td>
+                    )) || (
+                      <td onClick={() => handleStaus(book._id)}>
+                        {status || "panding"}
+                      </td>
+                    )}
                     <td>
                       <button
                         onClick={() => deleteBooking(book._id)}

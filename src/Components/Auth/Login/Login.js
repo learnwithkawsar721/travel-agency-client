@@ -16,7 +16,9 @@ const Login = () => {
   return (
     <div>
       <h1>Login Page</h1>
-      <button onClick={singInGoogle}>Google Sig In</button>
+      <button onClick={singInGoogle} className="btn btn-danger">
+        Google Sign In
+      </button>
     </div>
   );
 };

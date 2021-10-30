@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
@@ -8,7 +8,6 @@ const EditServices = () => {
   // const history = useHistory();
   const { id } = useParams();
   const [service, setService] = useState({});
-  const title = useRef(service.title);
 
   useEffect(() => {
     axios.get(getApi(`services/${id}`)).then((res) => {
@@ -16,11 +15,9 @@ const EditServices = () => {
     });
   });
 
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-   
-    service.title = watch('title');
-    console.log(service);
+    console.log(data);
     // axios.put(getApi("services"), data).then((res) => {
     //   if (res.data.insertedId) {
     //     history.push("/services");
@@ -34,6 +31,7 @@ const EditServices = () => {
         <Col>
           <h1 className="text-center pb-4">Edit Services {id} </h1>
           <form onSubmit={handleSubmit(onSubmit)}>
+           
             <div className="row">
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
                 <label htmlFor="title">
@@ -44,9 +42,8 @@ const EditServices = () => {
                   className="form-control mt-2"
                   placeholder="service Title..."
                   id="title"
-                  {...register("title")}
-                  ref={title}
                   defaultValue={service?.title}
+                  {...register("title")}
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
@@ -59,8 +56,8 @@ const EditServices = () => {
                   className="form-control mt-2"
                   placeholder="Service Price $0.01"
                   id="price"
-                  {...register("price")}
                   defaultValue={service?.price}
+                  {...register("price")}
                 />
               </div>
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">

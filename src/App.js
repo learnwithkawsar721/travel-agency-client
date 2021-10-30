@@ -8,6 +8,7 @@ import Home from "./Components/Home/Home/Home";
 import ServiseDetails from "./Components/Home/ServiseDetails/ServiseDetails";
 import MyBooking from "./Components/MyBooking/MyBooking";
 import Services from "./Components/Services/Services";
+import Footer from "./Components/Sheared/Footer/Footer";
 import Header from "./Components/Sheared/Header/Header";
 import AuthProvider from "./ContextAPI/AuthProvider";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
@@ -46,6 +47,7 @@ function App() {
             <Services />
           </PrivetRoute>
         </Switch>
+        <Footer />
       </Router>
     </AuthProvider>
   );

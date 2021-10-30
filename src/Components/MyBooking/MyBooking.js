@@ -5,7 +5,6 @@ import useAuth from "../../hooks/useAuth";
 import getApi from "../../Utility/getApi";
 
 const MyBooking = () => {
-  
   const [booking, setBooking] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
@@ -28,7 +27,7 @@ const MyBooking = () => {
       <>
         <Row>
           <Col className="col-12">
-            <h2 className="text-center pb-4">My Booking List</h2>
+            <h2 className="text-center pb-4">My Booking List(User)</h2>
             <div className="table-responsive">
               <table className="table">
                 <thead>
@@ -39,6 +38,7 @@ const MyBooking = () => {
                     <th>Images</th>
                     <th>price</th>
                     <th>Phone</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -56,6 +56,7 @@ const MyBooking = () => {
                         <sub> x {book.quantity}</sub>
                       </td>
                       <td>{book.phone}</td>
+                      <td>{book.status}</td>
                       <td>
                         <button
                           onClick={() => deleteBooking(book._id)}
@@ -71,7 +72,6 @@ const MyBooking = () => {
             </div>
           </Col>
         </Row>
-        
       </>
     </Container>
   );

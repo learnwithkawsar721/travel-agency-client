@@ -23,6 +23,7 @@ const ServiseDetails = () => {
     booking.email = user.email;
     booking.name = user.displayName;
     booking.services = service;
+    booking.status = "pending";
     axios.post(getApi("bookign"), booking).then((res) => {
       if (res.data.insertedId) {
         history.push("/mybooking");

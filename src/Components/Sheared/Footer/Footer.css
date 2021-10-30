@@ -1,0 +1,7 @@
+.footer_section{
+    overflow-x: hidden;
+}
+.footer-details ul li{
+    list-style-type: none;
+    margin: 20px 0;
+}

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
 import getApi from "../../Utility/getApi";
 
 const Services = () => {
@@ -12,18 +11,21 @@ const Services = () => {
     });
   }, []);
   const handelDelete = (id) => {
-    axios.post(getApi(`services/${id}`)).then((res) => {
-      if (res.data.deletedCount > 0) {
-        const filterServices = services.filter((ser) => ser._id !== id);
-        setServices(filterServices);
-        alert("Services deletedt Successfully");
-      }
-    });
+    const confirm = window.confirm("Are you Sure???");
+    confirm &&
+      axios.delete(getApi(`services/${id}`)).then((res) => {
+        if (res.data.deletedCount > 0) {
+          const filterServices = services.filter((ser) => ser._id !== id);
+          setServices(filterServices);
+          alert("Services deletedt Successfully");
+        }
+      });
   };
   return (
     <Container>
       <Row>
-        <Col className="col-12">
+        <Col className="col-12 mt-5">
+          <h1 className="text-center">All Services List (Admin) </h1>
           <div className="table-responsive">
             <table className="table">
               <thead>
@@ -43,9 +45,9 @@ const Services = () => {
                       <img src={service.img} height="40" alt="" />
                     </td>
                     <td>
-                      <NavLink to={`/services/edit/${service._id}`} className="btn btn-sm btn-primary">
+                      {/* <NavLink to={`/services/edit/${service._id}`} className="btn btn-sm btn-primary">
                         Edit
-                      </NavLink>
+                      </NavLink> */}
                       <Button
                         onClick={() => handelDelete(service._id)}
                         className="btn btn-sm btn-danger ms-2"
