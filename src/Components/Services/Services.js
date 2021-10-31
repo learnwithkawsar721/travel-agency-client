@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import getApi from "../../Utility/getApi";
 
 const Services = () => {
@@ -45,9 +46,9 @@ const Services = () => {
                       <img src={service.img} height="40" alt="" />
                     </td>
                     <td>
-                      {/* <NavLink to={`/services/edit/${service._id}`} className="btn btn-sm btn-primary">
+                      <NavLink to={`/services/edit/${service._id}`} className="btn btn-sm btn-primary">
                         Edit
-                      </NavLink> */}
+                      </NavLink>
                       <Button
                         onClick={() => handelDelete(service._id)}
                         className="btn btn-sm btn-danger ms-2"

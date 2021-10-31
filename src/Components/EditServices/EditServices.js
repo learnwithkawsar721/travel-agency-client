@@ -27,11 +27,10 @@ const EditServices = () => {
   };
   return (
     <Container>
-      <Row className="pt-5">
+      <Row className="py-5">
         <Col>
-          <h1 className="text-center pb-4">Edit Services {id} </h1>
+          <h1 className="text-center pb-4">Edit Services (not-working) </h1>
           <form onSubmit={handleSubmit(onSubmit)}>
-           
             <div className="row">
               <div className="col-12 col-sm-12 col-md-4 col-lg-4">
                 <label htmlFor="title">
@@ -42,7 +41,7 @@ const EditServices = () => {
                   className="form-control mt-2"
                   placeholder="service Title..."
                   id="title"
-                  defaultValue={service?.title}
+                  defaultValue={service.title}
                   {...register("title")}
                 />
               </div>

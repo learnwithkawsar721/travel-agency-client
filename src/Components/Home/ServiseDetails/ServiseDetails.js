@@ -19,6 +19,7 @@ const ServiseDetails = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     const booking = data;
+    console.log(data);
     booking.serviceId = id;
     booking.email = user.email;
     booking.name = user.displayName;
@@ -78,6 +79,7 @@ const ServiseDetails = () => {
                         id="autoSizingInputGroup"
                         placeholder="Username"
                         defaultValue={user?.displayName}
+                        {...register("name")}
                         readOnly
                       />
                     </div>
@@ -93,6 +95,7 @@ const ServiseDetails = () => {
                         id="autoSizingInputGroup"
                         placeholder="Username"
                         defaultValue={user?.email}
+                        {...register("email")}
                         readOnly
                       />
                     </div>
